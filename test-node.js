@@ -6,9 +6,6 @@ import * as  dotenv from 'dotenv'
 dotenv.config()
 const proxyAgent = new HttpsProxyAgent('http://127.0.0.1:8080');
 import puppeteer from "puppeteer";
-import { delay } from "underscore";
-import { exit } from "process";
-import { PassThrough } from "stream";
 // import {  } from "body-parser";
 const cook =[]
 const browser = await puppeteer.launch({
@@ -22,10 +19,10 @@ var url = [
   "https://www.auto-doc.at/search?keyword=",
   "https://www.auto-doc.it/search?keyword=",
 
-  "https://www.oscaro.com/fr/search?q=",
-  "https://www.oscaro.pt/pt/search?q=",
-  "https://www.oscaro.be/fr/search?q=",
-  "https://www.oscaro.es/es/search?q=",
+  // "https://www.oscaro.com/fr/search?q=",
+  // "https://www.oscaro.pt/pt/search?q=",
+  // "https://www.oscaro.be/fr/search?q=",
+  // "https://www.oscaro.es/es/search?q=",
 
   // "https://turbo-diesel.co.uk/?post_type=product&s=",
   // "http://turbolader24.ch",
@@ -216,7 +213,7 @@ for (let x of await items_nos ) {
 }
 
 await main()
-await fetch(process.env.LINK+'/shop/price/',{
+await fetch(process.env.LINK+'shop/price/',{
   method:'POST',
   body:JSON.stringify(finalList),
   headers: {'Content-Type': 'application/json'}
